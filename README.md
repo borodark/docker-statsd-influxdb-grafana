@@ -44,6 +44,15 @@ Host		Container		Service
 8125		8125			statsd
 22022		22				sshd
 ```
+## Open firewall ports 
+```bash
+sudo firewall-cmd --permanent --zone=public --add-port=8086/tcp
+sudo firewall-cmd --permanent --zone=public --add-port=3003/tcp
+sudo firewall-cmd --permanent --zone=public --add-port=3004/tcp
+sudo firewall-cmd --permanent --zone=public --add-port=8125/udp
+sudo firewall-cmd --permanent --zone=public --add-port=22022/udp
+sudo firewall-cmd --reload
+```
 ## SSH
 
 ```sh
