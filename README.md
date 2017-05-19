@@ -17,7 +17,7 @@ sudo yum makecache fast
 sudo yum install docker-ce
 sudo systemctl start docker
 sudo systemctl enable docker
-sudo emacs /etc/group  # add yourself to docker group: docker:x:202:iostaptchenko
+sudo emacs /etc/group  # add yourself to docker group: docker:x:202:<your username here>
 # open ports 
 sudo firewall-cmd --permanent --zone=public --add-port=8086/tcp
 sudo firewall-cmd --permanent --zone=public --add-port=3003/tcp
