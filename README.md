@@ -8,6 +8,25 @@ Grafana:  2.6.0
 
 ## Quick Start
 
+### install docker on Centos
+```sh
+sudo yum install -y yum-utils
+sudo yum-config-manager --add-repo  https://download.docker.com/linux/centos/docker-ce.repo
+sudo yum-config-manager --enable docker-ce-edge
+sudo yum makecache fast
+sudo yum install docker-ce
+sudo systemctl start docker
+sudo systemctl enable docker
+sudo emacs /etc/group  # add yourself to docker group: docker:x:202:iostaptchenko
+# open ports 
+sudo firewall-cmd --permanent --zone=public --add-port=8086/tcp
+sudo firewall-cmd --permanent --zone=public --add-port=3003/tcp
+sudo firewall-cmd --permanent --zone=public --add-port=3004/tcp
+sudo firewall-cmd --permanent --zone=public --add-port=8125/udp
+sudo firewall-cmd --permanent --zone=public --add-port=22022/udp
+sudo firewall-cmd --reload
+```
+
 To start the container the first time launch:
 
 ```sh
@@ -101,3 +120,5 @@ Port:     8086
 
 1. Establish a ssh connection with the container
 2. Launch `influx` to open InfluxDB Shell (CLI)
+
+
